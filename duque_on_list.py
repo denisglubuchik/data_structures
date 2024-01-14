@@ -4,6 +4,7 @@ class Node(object):
         self.next = None
         self.prev = None
 
+
 class De_queue(object):
     def __init__(self) -> None:
         self.size = 0

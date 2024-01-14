@@ -10,7 +10,7 @@ class Item:
 class Hashmap:
     def __init__(self) -> None:
         self.size = 0
-        self.capacity = 326
+        self.capacity = 32
         self.elements: list[Item] = [None for _ in range(self.capacity)]    
         self.FILL_FACTOR = 0.75
 
@@ -25,7 +25,7 @@ class Hashmap:
     def add(self, key: str, value: int):
         hashed = self.hash(key)
       
-        if self.elements[hashed] is not None or self.elements[hashed] != 'REMOVED':
+        if self.elements[hashed] is not None and self.elements[hashed] != 'REMOVED':
             self.realloc()
             temp = hashed + 1
             while True:
@@ -59,6 +59,7 @@ class Hashmap:
 
         if self.elements[hashed]:
             self.elements[hashed] = 'REMOVED'
+            self.size -= 1
         else:
             return IndexError
     

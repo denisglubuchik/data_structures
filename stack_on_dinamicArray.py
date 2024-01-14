@@ -1,5 +1,6 @@
 import ctypes
 
+
 class Stack(object):
     def __init__(self) -> None:
         self.count = 1
